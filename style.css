@@ -1,5 +1,6 @@
 :root {
 	--fm: 'Roboto', sans-serif;
+	--fa5: 'Font Awesome\ 5 Free';
 	--darkbluecolor: #0275d8;
 	--lightbluecolor: #BEE1FF;
 	--yellowcolor: #F5A623;
@@ -175,6 +176,13 @@ ul.nav li {
 	text-align: center;
 	background-color: var(--lightbluecolor);
 }
+ul.nav li:before {
+	content: '\f0c8';
+	font-family: var(--fa5);
+	color: var(--darkbluecolor);
+	font-size: 2.0rem;
+	padding-right: 5px;
+}
 ul.nav li.active {
 	background-color: var(--darkbluecolor);
 }
@@ -189,6 +197,13 @@ ul.nav li a {
 }
 ul.nav li.active a {
 	color: #FFF;
+}
+ul.nav li.active:before {
+	content: '\f152';
+	font-family: var(--fa5);
+	color: #FFF;
+	font-size: 2.0rem;
+	padding-right: 5px;
 }
 .wrap form {
 	width: 100%;
@@ -268,7 +283,7 @@ button.btnstep.active {
 .picturebox p:before {
 	content: '\f302';
 	color: var(--graycolor);
-	font-family: 'Font Awesome\ 5 Free';
+	font-family: var(--fa5);
 	font-size: 6.0rem;
 	display: inline-block;
 	position: absolute;
