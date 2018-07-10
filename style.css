@@ -21,18 +21,52 @@ html {
 	width: 640px;
 	min-height: 200px;
 	margin: auto;
-	/*top: 50%;*/
+	top: 50%;
 	left: 50%;
 	margin-left: -320px;
-	border-top: 8px solid var(--darkbluecolor);
+	border-radius: 0 0 10px 10px;
+	box-shadow: 6px 10px 10px 0 #AAA;
+	padding: 15px 15px 0 15px;
+}
+.wrap:after {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	border-radius: 0 0 10px 10px;
+	background-color: #FFF;
+	animation: wrapheightani 1s 1s linear forwards;
+	opacity: 0;
+	z-index: 10;
+}
+.wrap:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	width: 100%;
+	height: 8px;
+	background-color: var(--darkbluecolor);
+	margin: 0 auto;
 	animation: wrapwidthani 1s linear;
+	z-index: 20;
 }
 @keyframes wrapwidthani {
-	  0% { border-top-width: 0px; };
-	100% { border-top-width: 8px; };
+	  0% { width: 0; opacity: 0; };
+	100% { width: 100%; opacity: 1; };
+}
+@keyframes wrapheightani {
+	  0% { height: 0; opacity: 1;}
+	100% { height: 100%; opacity: 0; z-index: -1;}
 }
 .wrap .progressbar {
-	margin: 25px 0;
+	margin: 30px 0;
 }
 .wrap .progressbar ul {
 	display: block;
@@ -169,6 +203,7 @@ button.btnstep {
 	margin: 40px 0;
 	text-align: center;	
 	color: var(--graycolor);
+	cursor: pointer;
 }
 .picturebox:before {
 	content: '';
