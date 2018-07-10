@@ -21,11 +21,92 @@
 		<p class="subtitle">We wanna know you more!</p>
 		<form>
 			<div class="picturebox">
+				<label for="upload_img" class="labelstep3">
+				<input id="upload_img" type="file" multiple accept="image/png,image/jpg,image/gif,image/JPEG" />
 				<p>UPLOAD UP TO 3 PHOTOS<br><span>MAX SIZE: 150*150px</span></p>
+				</label>
 			</div>
+			<div id="imgBox"></div>
 			<button class="btnstep">SUMBIT & NEXT</button>
+			
 		</form>
+		<ul class="nav">
+			<li><a href="step1.html">step1</a></li>
+			<li><a href="step2.html">step2</a></li>
+			<li class="active"><a href="step3.html">step3</a></li>
+			<li><a href="step4.html">step4</a></li>
+			<li><a href="step5.html">step5</a></li>
+		</ul>
 	</div>
 	<script type="text/javascript" src="script.js"></script>
+	<script src="https://code.jquery.com/jquery.js"></script>
+	<script>
+		var imgSrc = []; //圖片路徑
+		var imgFile = []; //上傳圖片資料流
+		var imgName = []; //圖片檔名
+		imgUpload({
+			inputId:'upload_img',
+			imgBox:'imgBox'
+		})
+
+		function imgUpload(obj) {
+			var oInput = '#' + obj.inputId;
+			var imgBox = '#' + obj.imgBox;
+			var btn = '#' + obj.buttonId;
+			$(oInput).on("change", function() {
+				var fileImg = $(oInput)[0];
+				var fileList = fileImg.files;
+				if (fileList.length > 3) {
+					alert('Only 3 Photos!!');
+				} else {
+					for(var i = 0; i < fileList.length; i++) {
+						var theimgSrcI = getObjectURL(fileList[i]);
+						var theimgName = fileList[i].name;
+						var theimgFile = fileList[i];
+						
+				        imgName.push(theimgName);
+						imgSrc.push(theimgSrcI);
+						imgFile.push(theimgFile);    	
+					}					
+					addNewContent(imgBox);
+				}
+			})
+		}
+		//圖片預覽路徑
+		function getObjectURL(file) {
+		    var url = null;
+		    if (window.createObjectURL != undefined) { // basic
+		        url = window.createObjectURL(file);
+		    } else if (window.URL != undefined) { // mozilla(firefox)
+		        url = window.URL.createObjectURL(file);
+		    } else if (window.webkitURL != undefined) { // webkit or chrome
+		        url = window.webkitURL.createObjectURL(file);
+		    }
+		    return url;
+		}
+		//圖片展示
+		function addNewContent(obj) {
+		    $(imgBox).html(""); //清空div imgBox 
+		    for (var a = 0; a < imgSrc.length; a++) {
+		        var oldBox = $(obj).html();
+		        $(obj).html(oldBox + '<div class="imgContainer"><img title=' + imgName[a] + ' alt=' + imgName[a] + ' src=' + imgSrc[a] + ' ><p onclick="removeImg(this,' + a + ')" class="imgDelete">Remove</p>');
+		    }
+		    if (imgSrc.length > 0) {
+		    	$('.btnstep').removeClass('active');
+		    	$('.btnstep').addClass('active');
+		    } else {
+		    	$('.btnstep').removeClass('active');
+		    }
+		}
+		//删除
+		function removeImg(obj, index) {    
+		    //imgSrc imgFile imgName 皆為額外存資訊的陣列，sllice為刪除指定index
+		    imgSrc.splice(index, 1); 
+		    imgFile.splice(index, 1);
+		    imgName.splice(index, 1);
+		    var boxId = "#" + $(obj).parent('.imgContainer').parent().attr("id");
+		    addNewContent(boxId);
+		}
+	</script>
 </body>
 </html>
