@@ -58,7 +58,7 @@ html {
 	z-index: 20;
 }
 .finish {
-	animation: wrapshadowani 3s ease-in-out infinite;
+	animation: wrapshadowani 3s 2s ease-in-out infinite;
 }
 @keyframes wrapwidthani {
 	  0% { width: 0; opacity: 0; };
