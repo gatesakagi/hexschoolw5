@@ -1,0 +1,249 @@
+:root {
+	--fm: 'Roboto', sans-serif;
+	--darkbluecolor: #0275d8;
+	--lightbluecolor: #BEE1FF;
+	--yellowcolor: #F5A623;
+	--graycolor: #9B9B9B;
+}
+* {
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+	box-sizing: border-box;
+	/*outline: 1px solid #000;*/
+}
+html {
+	font-size: 62.5%;
+	font-family: var(--fm);
+}
+.wrap {
+	position: absolute;
+	width: 640px;
+	min-height: 200px;
+	margin: auto;
+	/*top: 50%;*/
+	left: 50%;
+	margin-left: -320px;
+	border-top: 8px solid var(--darkbluecolor);
+	animation: wrapwidthani 1s linear;
+}
+@keyframes wrapwidthani {
+	  0% { border-top-width: 0px; };
+	100% { border-top-width: 8px; };
+}
+.wrap .progressbar {
+	margin: 25px 0;
+}
+.wrap .progressbar ul {
+	display: block;
+	list-style: none;
+	text-align: center;
+	max-width: 60%;
+	margin: 0 auto;
+	font-size: 0;
+}
+.wrap .progressbar li  {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	margin: 0 calc(90% / 10);
+	border: 2px solid var(--darkbluecolor);
+	border-radius: 50%;
+	background-color: #FFF;
+	position: relative;
+}
+.wrap .progressbar li:before ~ li.active:before {
+	content: '1';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--darkbluecolor);
+}
+.wrap .progressbar li:not(:last-child):after {
+	content: '';
+  	position: absolute;
+  	width: 500%;
+  	height: 3px;
+  	background-color: var(--darkbluecolor);
+  	top: 7px;
+  	right: -500%;
+  	z-index: -1;
+}
+.wrap .progressbar li.active {
+	border-color: var(--darkbluecolor);
+}
+.wrap .progressbar li.active:after {
+	background-color: var(--lightbluecolor);
+}
+.wrap .progressbar li.active:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	background-color: var(--darkbluecolor);
+}
+.wrap .progressbar li.active ~ li {
+	border-color: var(--lightbluecolor);
+}
+.wrap .progressbar li.active ~ li:after {
+	background-color: var(--lightbluecolor);	
+}
+.wrap .progressbar li i {
+	display: inline-block;
+	color: var(--darkbluecolor);
+	font-size: 2.0rem;
+	position: absolute;
+	top: -2px;
+	left: -3px;
+}
+.wrap .title {
+	font-size: 4.8rem;
+	font-weight: 300;
+	text-align: center;
+	line-height: 5.7rem;
+}
+.wrap .subtitle {
+	font-size: 2.4rem;
+	font-weight: 300;
+	text-align: center;
+	line-height: 2.8rem;
+}
+.wrap form {
+	width: 100%;
+	margin: 50px 0;
+}
+label {
+	display: block;
+	font-weight: 400;
+	font-size: 2.0rem;
+	line-height: 2.4rem;
+	margin: 5px 0;
+}
+label > span {
+	font-size: 1.6rem;
+	font-weight: 300;
+}
+input[type='text'], input[type='password'], select {
+	display: block;
+	margin: 5px 0 40px 0;
+	width: 100%;
+	height: 4.8rem;
+	border-radius: 8px;
+	border: 2px solid #000;
+	padding: 0 20px;
+	font-size: 2.0rem;
+	line-height: 2.4rem;
+	color: #999;
+}
+button.btnstep {
+	display: block;
+	width: 100%;
+	height: 4.8rem;
+	background-color: var(--lightbluecolor);
+	border: 2px solid var(--lightbluecolor);
+	border-radius: 8px;
+	color: #FFF;
+	font-size: 2.0rem;
+	font-weight: 400;
+	cursor: pointer;
+}
+
+/* step3 */
+.picturebox {
+	border: 2px solid #000;
+	width: 100%;
+	height: 140px;
+	border-radius: 8px;
+	margin: 40px 0;
+	text-align: center;	
+	color: var(--graycolor);
+}
+.picturebox p {
+	padding: 50px 200px;
+	font-size: 2.0rem;
+	font-weight: 400;
+	line-height: 1.6rem;
+	text-align: left;
+	position: relative;
+}
+.picturebox span {
+	font-size: 1.6rem;
+	font-weight: 400;
+}
+.picturebox p:before {
+	content: '\f302';
+	color: var(--graycolor);
+	font-family: 'Font Awesome\ 5 Free';
+	font-size: 6.0rem;
+	display: inline-block;
+	position: absolute;
+	top: 55px;
+	left: 120px;
+}
+
+/* step4 */
+.fullwidth {
+	display: block;
+	width: 100%;
+	position: relative;
+}
+.fullwidth input[type='text'].cardnumberbox {
+	width: 97%;
+}
+.fullwidth span.visacard i {
+	color: var(--graycolor);
+	font-size: 2.6rem;
+	position: absolute;
+	top: 55%;
+	right: 40px;
+}
+.halfwidth {
+	display: inline-block;
+	width: 50%;
+	float: left;
+}
+.clearfix {
+	clear: both;
+	display: block;
+}
+.halfwidth:nth-of-type(3) { transform: translate(12px, 0); }
+.threewidth {
+	display: inline-block;
+	width: 33.28%;
+	float: left;
+	font-size: 0;
+}
+.nolabel { padding-top: 33px; }
+.halfwidth input,
+.threewidth input,
+.halfwidth select,
+.threewidth select {
+	width: 90%;
+}
+/* step5 */
+.finishbox {
+	color: var(--lightbluecolor);
+	font-size: 24.0rem;
+	text-align: center;
+	padding: 40px 0;
+}
+.detailinfo {
+	color: var(--darkbluecolor);
+	font-size: 2.0rem;
+	font-weight: 300;
+	font-style: italic;
+	text-align: center;
+	padding: 20px 0;
+}
