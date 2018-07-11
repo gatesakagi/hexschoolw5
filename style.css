@@ -4,7 +4,8 @@
 	--darkbluecolor: #0275d8;
 	--lightbluecolor: #BEE1FF;
 	--yellowcolor: #F5A623;
-	--graycolor: #9B9B9B;
+	--graycolor: #222222;
+	--placeholdercolor: #9B9B9B;
 }
 * {
 	margin: 0;
@@ -16,6 +17,16 @@
 html {
 	font-size: 62.5%;
 	font-family: var(--fm);
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--placeholdercolor);
+    opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: var(--placeholdercolor);
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: var(--placeholdercolor);
 }
 .wrap {
 	position: absolute;
@@ -234,7 +245,7 @@ select {
 	padding: 0 20px;
 	font-size: 2.0rem;
 	line-height: 2.4rem;
-	color: #999;
+	color: var(--graycolor);
 	outline: none;
 }
 select {
@@ -259,6 +270,10 @@ select {
   	color: #000;
   	pointer-events: none;
 }
+option:first-child {
+    color: var(--placeholdercolor);
+}
+
 button.btnstep {
 	display: block;
 	width: 100%;

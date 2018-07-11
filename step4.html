@@ -90,6 +90,28 @@
 	            val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
 	            $(this).val( val );
 	        });
+	        function optionColorChange($targetSelect) {
+	        	console.log($($targetSelect).css('color'));
+	        	if ($($targetSelect).val() == null ) {
+	            	$($targetSelect).css('color', 'var(--placeholdercolor)');
+	            } else {
+	            	$($targetSelect).css('color', 'var(--graycolor)');
+	            }
+	        }
+	        $('#expiredatemm').ready(function(){
+	            optionColorChange($('#expiredatemm'));
+	        });
+
+	        $('#expiredatemm').change(function(){
+	            optionColorChange($('#expiredatemm'));
+	        });
+	        $('#expiredateyy').ready(function(){
+	            optionColorChange($('#expiredateyy'));
+	        });
+
+	        $('#expiredateyy').change(function(){
+	            optionColorChange($('#expiredateyy'));
+	        });
     	</script>
 	</div>
 </body>
