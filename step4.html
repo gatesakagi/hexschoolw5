@@ -19,10 +19,10 @@
 		</div>
 		<p class="title">Payment Method</p>
 		<p class="subtitle">Add your credit card infomation! </p>
-		<form>
+		<form id="step4form">
 			<div class="fullwidth">
 				<label for="usercardnumber">Card Number</label>
-				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox" required maxlength="19" title="請輸入正確的信用卡卡號" pattern="[ 0-9]*">
+				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox" required maxlength="19" title="請輸入正確的信用卡卡號" pattern="[ 0-9]{19}">
 				<span class="usercard"><i></i></span>
 			</div>
 			<div class="halfwidth">
@@ -96,7 +96,7 @@
 	           		if (parseInt(val) == 34 || parseInt(val) == 37) {
 						$('.usercard i').removeClass().addClass('fab fa-cc-amex');
 					} else {
-						$('.usercard i').removeClass().addClass('far fa-credit-card');
+						checkVisaOrMaster(usercardFirstChar);
 					}
 	           	} else if (val.length == 4) {
 	           		if (parseInt(val) > 3527 && parseInt(val) < 3590) {
@@ -105,7 +105,7 @@
 	           			if (parseInt(val.charAt(0)+val.charAt(1)) == 34 || parseInt(val.charAt(0)+val.charAt(1)) == 37) {
 							$('.usercard i').removeClass().addClass('fab fa-cc-amex');
 						} else {
-							$('.usercard i').removeClass().addClass('far fa-credit-card');
+							checkVisaOrMaster(usercardFirstChar);
 						}
 	           		}
 	           	}
@@ -141,6 +141,51 @@
 	        $('#expiredateyy').change(function(){
 	            optionColorChange($('#expiredateyy'));
 	        });
+
+	        var validateCounts = 0;
+	        var validcardnumberResult = false;
+	        $('#usercardnumber').change(function(){
+	        	if ($(this).val().length == 19) {
+	        		var usercardnumberRegex = /[ 0-9]{19}/;
+	        		validcardnumberResult = usercardnumberRegex.test($(this).val());
+	        	} else {
+	        		validcardnumberResult = false;
+	        	}
+	        		console.log(validcardnumberResult);
+	        		validateCheck('#usercardnumber');
+	        });
+	        $('#usercardholdername').change(function(){
+	        	validateCheck('#usercardholdername');
+	        });
+	        $('#userbankname').change(function(){
+	        	validateCheck('#userbankname');
+	        });
+	        $('#userCVV').change(function(){
+	        	validateCheck('#userCVV');
+	        });
+	        $('#expiredatemm').change(function(){
+	        	validateCheck('#expiredatemm');
+	        });
+	        $('#expiredateyy').change(function(){
+	        	validateCheck('#expiredateyy');
+	        });
+	        
+	        function validateCheck(targetElementID) {
+	        	if($(targetElementID).val() != '') {
+	        		validateCounts++;
+	        	}
+	        	if (validateCounts > 5 && validcardnumberResult == true) {
+	        		$('.btnstep').removeClass('active');
+		    		$('.btnstep').addClass('active');
+			    } else {
+			    	$('.btnstep').removeClass('active');
+			    }
+	        }
+	        $('.btnstep').click(function(e) {
+	        	if (validateCounts < 6  && validcardnumberResult == false) {
+	        		e.preventDefault();
+			    } 	
+	        })
     	</script>
 	</div>
 </body>
