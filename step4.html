@@ -9,36 +9,39 @@
 </head>
 <body>
 	<div class="wrap">
-		<div class="progressbar">
-			<ul>
-				<li><i class="fas fa-check-circle"></i></li>
-				<li><i class="fas fa-check-circle"></i></li>
-				<li><i class="fas fa-check-circle"></i></li>
-				<li class="active"></li>
-			</ul>
+		<div class="itemfull">
+			<div class="progressbar">
+				<ul>
+					<li><i class="fas fa-check-circle"></i></li>
+					<li><i class="fas fa-check-circle"></i></li>
+					<li><i class="fas fa-check-circle"></i></li>
+					<li class="active"></li>
+				</ul>
+			</div>
 		</div>
-		<p class="title">Payment Method</p>
-		<p class="subtitle">Add your credit card infomation! </p>
+		<div class="itemfull">
+			<p class="title">Payment Method</p>
+			<p class="subtitle">Add your credit card infomation! </p>
+		</div>
 		<form id="step4form">
-			<div class="fullwidth">
+			<div class="itemfull">
 				<label for="usercardnumber">Card Number</label>
 				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox" required maxlength="19" title="請輸入正確的信用卡卡號" pattern="[ 0-9]{19}">
 				<span class="usercard"><i></i></span>
 			</div>
-			<div class="halfwidth">
+			<div class="itemhalf">
 				<label for="usercardholdername">Cardhold Name</label>
 				<input type="text" id="usercardholdername" name="usercardholdername" placeholder="EXAMPLE NAME" required>
 			</div>
-			<div class="halfwidth">
+			<div class="itemhalf">
 				<label for="userbankname">Bank Name</label>
 				<input type="text" id="userbankname" name="userbankname" placeholder="EXAMPLE BANK" required>
 			</div>
-			<div class="clearfix"></div>
-			<div class="threewidth">
+			<div class="itemthree">
 				<label for="userCVV">CVV</label>
 				<input type="text" id="userCVV" name="userCVV" placeholder="123" maxlength="3" required pattern="\d{3}">
 			</div>
-			<div class="threewidth select-wrapper">
+			<div class="itemthree select-wrapper">
 				<label>Expire Date</label>
 				<select id="expiredatemm" name="expiredatemm" required>
 					<option disabled selected value>MM</option>
@@ -56,7 +59,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="threewidth nolabel select-wrapper">
+			<div class="itemthree select-wrapper nolabel">
 				<select id="expiredateyy" name="expiredateyy" required placeholder="MM">
 					<option disabled selected value>YY</option>
 					<option value="18">18</option>
@@ -72,8 +75,9 @@
 					<option value="28">28</option>
 				</select>
 			</div>
-			<div class="clearfix"></div>
-			<button class="btnstep">DONE</button>
+			<div class="itemfull">
+				<button class="btnstep">DONE</button>
+			</div>
 		</form>
 		<ul class="nav">
 			<li><a href="step1.html">step1</a></li>

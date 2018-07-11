@@ -9,24 +9,30 @@
 </head>
 <body>
 	<div class="wrap">
-		<div class="progressbar">
-			<ul>
-				<li class="active"></i></li>
-				<li></i></li>
-				<li></li>
-				<li></li>
-			</ul>
+		<div class="itemfull">
+			<div class="progressbar">
+				<ul>
+					<li class="active"></i></li>
+					<li></i></li>
+					<li></li>
+					<li></li>
+				</ul>
+			</div>
 		</div>
-		<p class="title">Create Account</p>
-		<p class="subtitle">Glad to see you here!</p>
+		<div class="itemfull">
+			<p class="title">Create Account</p>
+			<p class="subtitle">Glad to see you here!</p>
+		</div>
 		<form>
-			<label for="useraccount">Account</label>
-			<input type="email" id="useraccount" name="useraccount" placeholder="example@email.com" required>
-			<label for="userpassword">Password</label>
-			<input type="password" id="userpassword" name="userpassword" required>
-			<label for="userpasswordconfirm">Comfirm Password</label>
-			<input type="password" id="userpasswordconfirm" name="userpassword" required>
-			<button class="btnstep">SUMBIT & NEXT</button>
+			<div class="itemfull">
+				<label for="useraccount">Account</label>
+				<input type="email" id="useraccount" name="useraccount" placeholder="example@email.com" required>
+				<label for="userpassword">Password</label>
+				<input type="password" id="userpassword" name="userpassword" required>
+				<label for="userpasswordconfirm">Comfirm Password</label>
+				<input type="password" id="userpasswordconfirm" name="userpassword" required>
+				<button class="btnstep">SUMBIT & NEXT</button>
+			</div>
 		</form>
 		<ul class="nav">
 			<li class="active"><a href="step1.html">step1</a></li>

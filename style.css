@@ -40,6 +40,13 @@ html {
 	background: rgba(242,245,245,0.1);
 	box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
 	padding: 15px 15px 0 15px;
+
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center; 
+	font-size: 0;
 }
 .wrap:after {
 	content: '';
@@ -86,6 +93,18 @@ html {
 	 50% { transform: translate(5px, 2px); box-shadow: none; }  
 	100% { transform: translate(0, 0); }
 }
+.itemfull, .itemhalf, .itemthree {
+	display: inline-block;
+	text-align: left;
+	vertical-align: bottom;
+	padding: 0 15px;
+
+	/*outline: 1px solid #f00;*/
+}
+.itemfull { width: 100%; }
+.itemhalf {	width: 50%; }
+.itemthree { width: calc(100% / 3); }
+
 .wrap .progressbar {
 	margin: 30px 0;
 }
@@ -301,7 +320,6 @@ button.btnstep.active {
 	margin: 40px 0;
 	text-align: center;	
 	color: var(--graycolor);
-	
 }
 .picturebox:before {
 	content: '';
@@ -382,44 +400,8 @@ input[type='file'] { display: none; }
 }
 
 /* step4 */
-.fullwidth {
-	display: block;
-	width: 100%;
-	position: relative;
-}
-.fullwidth input[type='text'].cardnumberbox {
-	width: 97%;
-}
-.fullwidth span.usercard i {
-	color: var(--graycolor);
-	font-size: 2.6rem;
-	position: absolute;
-	top: 55%;
-	right: 40px;
-}
-.halfwidth {
-	display: inline-block;
-	width: 50%;
-	float: left;
-}
-.clearfix {
-	clear: both;
-	display: block;
-}
-.halfwidth:nth-of-type(3) { transform: translate(12px, 0); }
-.threewidth {
-	display: inline-block;
-	width: 33.28%;
-	float: left;
-	font-size: 0;
-}
 .nolabel { padding-top: 33px; }
-.halfwidth input,
-.threewidth input,
-.halfwidth select,
-.threewidth select {
-	width: 90%;
-}
+
 /* step5 */
 .finishbox {
 	color: var(--lightbluecolor);

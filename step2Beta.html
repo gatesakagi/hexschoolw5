@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>hexschool-valid</title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		.wrap {
+			width: 640px;
+			min-height: 1024px;
+			background-color: #AAA;
+			margin: 0 auto;
+
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+  			align-items: center; 
+		}
+		div {
+			/*display: inline-block;*/
+			font-size: 48px;
+			line-height: 48px;
+			text-align: center;
+			vertical-align: top;
+			color: #FFF;
+			outline: 1px solid #f00;
+			
+		}
+		.itemfull {
+			width: 100%;
+		}
+		.itemhalf {
+			width: 50%;
+		}
+		.itemthree {
+			width: calc(100% / 3);
+		}
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="itemfull">itemfull</div>
+		<div class="itemfull">itemfull</div>
+		<div class="itemhalf">itemhalf</div>
+		<div class="itemhalf">itemhalf</div>
+		<div class="itemthree">itemthree</div>
+		<div class="itemthree">itemthree</div>
+		<div class="itemthree">itemthree</div>
+		<div class="itemhalf">itemhalf</div>
+		<div class="itemhalf">itemhalf</div>
+		<div class="itemfull">itemfull</div>
+		<div class="itemfull">itemfull</div>
+	</div>
+</body>
+</html>

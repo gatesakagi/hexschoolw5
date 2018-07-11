@@ -9,30 +9,27 @@
 </head>
 <body>
 	<div class="wrap">
-		<div class="itemfull">
-			<div class="progressbar">
-				<ul>
-					<li><i class="fas fa-check-circle"></i></li>
-					<li class="active"></li>
-					<li></li>
-					<li></li>
-				</ul>
-			</div>		
+		<div class="progressbar">
+			<ul>
+				<li><i class="fas fa-check-circle"></i></li>
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ul>
 		</div>
-		<div class="itemfull">
-			<p class="title">General Infomation</p>
-			<p class="subtitle">Tell us who you are!</p>	
-		</div>
+		<p class="title">General Infomation</p>
+		<p class="subtitle">Tell us who you are!</p>
 		<form>
-			<div class="itemhalf">
+			<div class="halfwidth">
 				<label for="username">Name<span>(optional)</span></label>
 				<input type="text" id="username" name="username" placeholder="Example Name">
 			</div>
-			<div class="itemhalf">
+			<div class="halfwidth">
 				<label for="userphone">Phone*</label>
 				<input type="text" id="userphone" name="userphone" placeholder="0912345678" maxlength="10" required pattern="^09[0-9]{8}$" title="請輸入正確的手機號碼格式(09XXXXXXXX)">
 			</div>
-			<div class="itemthree select-wrapper">
+			<div class="clearfix"></div>
+			<div class="threewidth select-wrapper">
 				<label>Birth Date<span>(optional)</span></label>
 				<select id="userbirthdateYY" name="userbirthdateYY">
 					<option value="0">YYYY</option>
@@ -50,7 +47,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="itemthree select-wrapper nolabel">
+			<div class="threewidth nolabel select-wrapper">
 				<select id="userbirthdateMM" name="userbirthdateMM">
 					<option value="0">MM</option>
 					<option value="1">01</option>
@@ -67,7 +64,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="itemthree select-wrapper nolabel">
+			<div class="threewidth nolabel select-wrapper">
 				<select id="userbirthdateDD" name="userbirthdateDD">
 					<option value="0">DD</option>
 					<option value="1">01</option>
@@ -83,8 +80,9 @@
 					<option value="11">11</option>
 					<option value="12">12</option>
 				</select>
-			</div>			
-			<div class="itemhalf select-wrapper">
+			</div>
+			<div class="clearfix"></div>
+			<div class="halfwidth select-wrapper">
 				<label>Address*</label>
 				<select id="useraddressCity" name="useraddressCity" required>
 					<option value="0">City</option>
@@ -102,7 +100,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="itemhalf select-wrapper nolabel">
+			<div class="halfwidth nolabel select-wrapper">
 				<select id="useraddressDist" name="useraddressDist" required>
 					<option value="0">Dist</option>
 					<option value="1">01</option>
@@ -119,10 +117,11 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="itemfull">
-				<input type="text" id="useraddress" name="useraddress" placeholder="Address Detail">
-				<button class="btnstep">SUMBIT & NEXT</button>
+			<div class="clearfix"></div>
+			<div class="fullwidth">
+				<input type="text" id="useraddress" name="useraddress" placeholder="Address Detail">	
 			</div>
+			<button class="btnstep">SUMBIT & NEXT</button>
 		</form>
 		<ul class="nav">
 			<li><a href="step1.html">step1</a></li>
