@@ -27,21 +27,21 @@
 			</div>
 			<div class="halfwidth">
 				<label for="usercardholdername">Cardhold Name</label>
-				<input type="text" id="usercardholdername" name="usercardholdername" placeholder="EXAMPLE NAME">
+				<input type="text" id="usercardholdername" name="usercardholdername" placeholder="EXAMPLE NAME" required>
 			</div>
 			<div class="halfwidth">
 				<label for="userbankname">Bank Name</label>
-				<input type="text" id="userbankname" name="userbankname" placeholder="EXAMPLE BANK">
+				<input type="text" id="userbankname" name="userbankname" placeholder="EXAMPLE BANK" required>
 			</div>
 			<div class="clearfix"></div>
 			<div class="threewidth">
 				<label for="userCVV">CVV</label>
-				<input type="text" id="userCVV" name="userCVV" placeholder="123" maxlength="3">
+				<input type="text" id="userCVV" name="userCVV" placeholder="123" maxlength="3" required pattern="\d{3}">
 			</div>
 			<div class="threewidth select-wrapper">
 				<label>Expire Date</label>
-				<select id="expiredatemm" name="expiredatemm">
-					<option value="0">MM</option>
+				<select id="expiredatemm" name="expiredatemm" required>
+					<option disabled selected value>MM</option>
 					<option value="1">01</option>
 					<option value="2">02</option>
 					<option value="3">03</option>
@@ -57,8 +57,8 @@
 				</select>
 			</div>
 			<div class="threewidth nolabel select-wrapper">
-				<select id="expiredateyy" name="expiredateyy">
-					<option value="0">YY</option>
+				<select id="expiredateyy" name="expiredateyy" required placeholder="MM">
+					<option disabled selected value>YY</option>
 					<option value="18">18</option>
 					<option value="19">19</option>
 					<option value="20">20</option>
