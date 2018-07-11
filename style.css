@@ -122,7 +122,7 @@ html {
 	vertical-align: bottom;
 	padding: 0 15px;
 
-	outline: 1px solid #f00;
+	/*outline: 1px solid #f00;*/
 }
 .itemfull { width: 100%; }
 .itemhalf {	width: 50%; }
