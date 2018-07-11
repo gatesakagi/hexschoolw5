@@ -26,7 +26,8 @@ html {
 	left: 50%;
 	margin-left: -320px;
 	border-radius: 0 0 10px 10px;
-	box-shadow: 6px 10px 10px 0 #AAA;
+	background: rgba(242,245,245,0.1);
+	box-shadow: inset 1px 0 0 #dadce0, inset -1px 0 0 #dadce0, 0 1px 2px 0 rgba(60,64,67,.3), 0 1px 3px 1px rgba(60,64,67,.15);
 	padding: 15px 15px 0 15px;
 }
 .wrap:after {
@@ -39,7 +40,7 @@ html {
 	left: 0;
 	right: 0;
 	border-radius: 0 0 10px 10px;
-	background-color: #FFF;
+	background-color: rgba(242,245,245,0.3);
 	animation: wrapheightani 1s 1s linear forwards;
 	opacity: 0;
 	z-index: 10;
@@ -235,6 +236,28 @@ select {
 	line-height: 2.4rem;
 	color: #999;
 	outline: none;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	 -o-appearance: none;
+		appearance: none;
+}
+.select-wrapper {
+	position: relative;	
+}
+
+.select-wrapper:after {
+	content: '\f078';
+	font-family: var(--fa5);
+  	font-size: 2.8rem;
+  	font-weight: 900;
+  	position: absolute;
+  	top: 70px;
+  	right: 15%;
+  	color: #000;
+  	pointer-events: none;
 }
 button.btnstep {
 	display: block;

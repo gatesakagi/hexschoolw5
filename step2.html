@@ -26,10 +26,10 @@
 			</div>
 			<div class="halfwidth">
 				<label for="userphone">Phone*</label>
-				<input type="text" id="userphone" name="userphone" placeholder="0912 345 678">
+				<input type="text" id="userphone" name="userphone" placeholder="0912345678" maxlength="10" required pattern="^09[0-9]{8}$" title="請輸入正確的手機號碼格式(09XXXXXXXX)">
 			</div>
 			<div class="clearfix"></div>
-			<div class="threewidth">
+			<div class="threewidth select-wrapper">
 				<label>Birth Date<span>(optional)</span></label>
 				<select id="userbirthdateYY" name="userbirthdateYY">
 					<option value="0">YYYY</option>
@@ -47,7 +47,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="threewidth nolabel">
+			<div class="threewidth nolabel select-wrapper">
 				<select id="userbirthdateMM" name="userbirthdateMM">
 					<option value="0">MM</option>
 					<option value="1">01</option>
@@ -64,7 +64,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="threewidth nolabel">
+			<div class="threewidth nolabel select-wrapper">
 				<select id="userbirthdateDD" name="userbirthdateDD">
 					<option value="0">DD</option>
 					<option value="1">01</option>
@@ -82,9 +82,9 @@
 				</select>
 			</div>
 			<div class="clearfix"></div>
-			<div class="halfwidth">
+			<div class="halfwidth select-wrapper">
 				<label>Address*</label>
-				<select id="useraddressCity" name="useraddressCity">
+				<select id="useraddressCity" name="useraddressCity" required>
 					<option value="0">City</option>
 					<option value="1">01</option>
 					<option value="2">02</option>
@@ -100,8 +100,8 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="halfwidth nolabel">
-				<select id="useraddressDist" name="useraddressDist">
+			<div class="halfwidth nolabel select-wrapper">
+				<select id="useraddressDist" name="useraddressDist" required>
 					<option value="0">Dist</option>
 					<option value="1">01</option>
 					<option value="2">02</option>
@@ -131,6 +131,7 @@
 			<li><a href="step5.html">step5</a></li>
 		</ul>
 		<script type="text/javascript" src="script.js"></script>
+		
 	</div>
 </body>
 </html>

@@ -22,7 +22,7 @@
 		<form>
 			<div class="fullwidth">
 				<label for="usercardnumber">Card Number</label>
-				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox">
+				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox" required maxlength="19">
 				<span class="visacard"><i class="fab fa-cc-visa"></i></span>
 			</div>
 			<div class="halfwidth">
@@ -38,7 +38,7 @@
 				<label for="userCVV">CVV</label>
 				<input type="text" id="userCVV" name="userCVV" placeholder="123" maxlength="3">
 			</div>
-			<div class="threewidth">
+			<div class="threewidth select-wrapper">
 				<label>Expire Date</label>
 				<select id="expiredatemm" name="expiredatemm">
 					<option value="0">MM</option>
@@ -56,7 +56,7 @@
 					<option value="12">12</option>
 				</select>
 			</div>
-			<div class="threewidth nolabel">
+			<div class="threewidth nolabel select-wrapper">
 				<select id="expiredateyy" name="expiredateyy">
 					<option value="0">YY</option>
 					<option value="18">18</option>
@@ -83,6 +83,14 @@
 			<li><a href="step5.html">step5</a></li>
 		</ul>
 		<script type="text/javascript" src="script.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
+		<script>
+			$('#usercardnumber').keyup(function() {
+	            var val = $(this).val();
+	            val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
+	            $(this).val( val );
+	        });
+    	</script>
 	</div>
 </body>
 </html>
