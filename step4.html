@@ -89,18 +89,9 @@
 	            var val = $(this).val();
 	            val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
 	            $(this).val(val);
+	            var usercardFirstChar = val.charAt(0);
 	           	if (val.length == 1) {
-	           		var usercardFirstChar = val.charAt(0);
-	           		switch (usercardFirstChar) { 
-						case '1': 
-							$('.usercard i').removeClass().addClass('fab fa-cc-visa');
-							break;
-						case '2': 
-							$('.usercard i').removeClass().addClass('fab fa-cc-mastercard');
-							break;
-						default:
-							$('.usercard i').removeClass().addClass('far fa-credit-card');
-					}
+	           		checkVisaOrMaster(usercardFirstChar);
 	           	} else if (val.length == 2) {
 	           		if (parseInt(val) == 34 || parseInt(val) == 37) {
 						$('.usercard i').removeClass().addClass('fab fa-cc-amex');
@@ -111,10 +102,26 @@
 	           		if (parseInt(val) > 3527 && parseInt(val) < 3590) {
 	           			$('.usercard i').removeClass().addClass('fab fa-cc-jcb');
 	           		} else {
-	           			$('.usercard i').removeClass().addClass('far fa-credit-card');
+	           			if (parseInt(val.charAt(0)+val.charAt(1)) == 34 || parseInt(val.charAt(0)+val.charAt(1)) == 37) {
+							$('.usercard i').removeClass().addClass('fab fa-cc-amex');
+						} else {
+							$('.usercard i').removeClass().addClass('far fa-credit-card');
+						}
 	           		}
 	           	}
 	        });
+	        function checkVisaOrMaster(cardnum) {
+	        	switch (cardnum) { 
+					case '1': 
+						$('.usercard i').removeClass().addClass('fab fa-cc-visa');
+						break;
+					case '2': 
+						$('.usercard i').removeClass().addClass('fab fa-cc-mastercard');
+						break;
+					default:
+						$('.usercard i').removeClass().addClass('far fa-credit-card');
+				}
+	        }
 	        function optionColorChange($targetSelect) {
 	        	if ($($targetSelect).val() == null ) {
 	            	$($targetSelect).css('color', 'var(--placeholdercolor)');
