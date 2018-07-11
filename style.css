@@ -328,6 +328,14 @@ select {
 	color: var(--graycolor);
 	outline: none;
 }
+@media screen and (max-width:767px){
+	input[type='email'],
+	input[type='text'],
+	input[type='password'],
+	select {
+		margin: 5px 0;
+	}
+}
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -350,6 +358,11 @@ select {
   	color: #000;
   	pointer-events: none;
 }
+@media screen and (max-width:767px){
+	.select-wrapper.nolabel:after { 
+		top: 35px;
+	}
+}
 option:first-child {
     color: var(--placeholdercolor);
 }
@@ -366,6 +379,11 @@ button.btnstep {
 	font-weight: 400;
 	cursor: pointer;
 	outline: none;
+}
+@media screen and (max-width:767px){
+	button.btnstep {
+		margin-top: 40px;
+	}
 }
 button.btnstep.active {
 	background-color: var(--darkbluecolor);
@@ -481,7 +499,9 @@ input[type='file'] { display: none; }
 
 /* step4 */
 .nolabel { padding-top: 33px; }
-
+@media screen and (max-width:767px){
+	.nolabel { padding-top: 0; }
+}
 /* step5 */
 .finishbox {
 	color: var(--lightbluecolor);
