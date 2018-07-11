@@ -104,10 +104,14 @@
 	           	} else if (val.length == 2) {
 	           		if (parseInt(val) == 34 || parseInt(val) == 37) {
 						$('.usercard i').removeClass().addClass('fab fa-cc-amex');
-					} 
+					} else {
+						$('.usercard i').removeClass();
+					}
 	           	} else if (val.length == 4) {
 	           		if (parseInt(val) > 3527 || parseInt(val) < 3590) {
 	           			$('.usercard i').removeClass().addClass('fab fa-cc-jcb');
+	           		} else {
+	           			$('.usercard i').removeClass();
 	           		}
 	           	}
 	        });
