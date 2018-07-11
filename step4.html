@@ -23,7 +23,7 @@
 			<div class="fullwidth">
 				<label for="usercardnumber">Card Number</label>
 				<input type="text" id="usercardnumber" name="usercardnumber" placeholder="1234 5678 9012 3456" class="cardnumberbox" required maxlength="19" title="請輸入正確的信用卡卡號" pattern="[ 0-9]*">
-				<span class="visacard"><i class="fab fa-cc-visa"></i></span>
+				<span class="usercard"><i></i></span>
 			</div>
 			<div class="halfwidth">
 				<label for="usercardholdername">Cardhold Name</label>
@@ -82,13 +82,32 @@
 			<li class="active"><a href="step4.html">step4</a></li>
 			<li><a href="step5.html">step5</a></li>
 		</ul>
-		<script type="text/javascript" src="script.js"></script>
 		<script src="https://code.jquery.com/jquery.js"></script>
+		<script type="text/javascript" src="script.js"></script>
 		<script>
 			$('#usercardnumber').keyup(function() {
 	            var val = $(this).val();
 	            val = val.replace(/(\d{4})(?=\d)/g, "$1 ");
-	            $(this).val( val );
+	            $(this).val(val);
+	           	if (val.length == 1) {
+	           		var usercardFirstChar = val.charAt(0);
+	           		switch (usercardFirstChar) { 
+						case '1': 
+							$('.usercard i').removeClass().addClass('fab fa-cc-visa');
+							break;
+						case '2': 
+							$('.usercard i').removeClass().addClass('fab fa-cc-mastercard');
+							break;
+						default:
+							$('.usercard i').removeClass();
+					}
+	           	} else if (val.length == 3) {
+	           		if (parseInt(val) > 339 && parseInt(val) < 380) {
+						$('.usercard i').removeClass().addClass('fab fa-cc-amex');
+					} else {
+						$('.usercard i').removeClass().addClass('fab fa-cc-jcb');	
+					}
+	           	}
 	        });
 	        function optionColorChange($targetSelect) {
 	        	console.log($($targetSelect).css('color'));
@@ -101,14 +120,12 @@
 	        $('#expiredatemm').ready(function(){
 	            optionColorChange($('#expiredatemm'));
 	        });
-
 	        $('#expiredatemm').change(function(){
 	            optionColorChange($('#expiredatemm'));
 	        });
 	        $('#expiredateyy').ready(function(){
 	            optionColorChange($('#expiredateyy'));
 	        });
-
 	        $('#expiredateyy').change(function(){
 	            optionColorChange($('#expiredateyy'));
 	        });

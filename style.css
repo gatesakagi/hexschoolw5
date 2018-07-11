@@ -390,7 +390,7 @@ input[type='file'] { display: none; }
 .fullwidth input[type='text'].cardnumberbox {
 	width: 97%;
 }
-.fullwidth span.visacard i {
+.fullwidth span.usercard i {
 	color: var(--graycolor);
 	font-size: 2.6rem;
 	position: absolute;
